@@ -16,7 +16,10 @@
 EXISTING LINKS:
 
 {% for link in links %}
-    <li>{{ link.url }}</li>
+    <li><a href="{{ link.url }}">{{ link.url }}</a></li>
+    {% if link.image_url %}
+    <img src="{{ link.image_url }}" style="height:100px; width:100px; display:inline-block" alt=""/>
+    {% endif %}
 {% endfor %}
 
 </body>
