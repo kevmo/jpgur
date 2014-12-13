@@ -21,3 +21,7 @@ class LinkService(object):
         db.session.add(model)
         db.session.commit()
         return model
+
+    def all(self):
+
+        return Link.query.all()

@@ -10,7 +10,9 @@ links = LinkService()
 @app.route('/')
 def index():
 
-    existing_links = links.
+    existing_links = links.all()
+
+    print existing_links
     
     return render_template('index.html', links=existing_links
     )
