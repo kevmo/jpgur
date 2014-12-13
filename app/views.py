@@ -1,7 +1,7 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 
 from app import app
-
+from main.utility.scraper import get_images
 from models import Link, LinkService
 
 links = LinkService()
@@ -25,11 +25,12 @@ def successful_post():
 
     link = form.get('link')
 
-    l = Link(link)
+    og_link = get_images(link)
+
+    l = Link(link, og_link)
 
     saved_link = links.save(l)
 
-    print saved_link
+    print "SAVED LINK: ", saved_link
 
-
-    return  "trilla"
+    return redirect('/')
