@@ -10,7 +10,7 @@ def start_dev():
     app.run(debug=True)
 
 
-@manage.command
+@manager.command
 def start_proud():
     app.run(debug=False)
 
