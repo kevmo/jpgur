@@ -12,3 +12,12 @@ class Link(db.Model):
 
     def __repr__(self):
         return '<Link {} {}>'.format(self.id, self.url)
+
+
+class LinkService(object):
+
+    def save(self, model):
+
+        db.session.add(model)
+        db.session.commit()
+        return model
